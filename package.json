@@ -1,0 +1,19 @@
+{
+  "name": "async-js-http-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ajax & asynchronous JS-driven http requests",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongodb": "6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
