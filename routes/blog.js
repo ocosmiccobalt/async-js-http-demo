@@ -36,7 +36,7 @@ router.post('/posts', async function (req, res) {
     title: req.body.title,
     summary: req.body.summary,
     body: req.body.content,
-    date: new Date(),
+    createdAt : new Date(),
     author: {
       id: authorId,
       name: author.name,
@@ -97,7 +97,7 @@ router.post('/posts/:id/edit', async function (req, res) {
           title: req.body.title,
           summary: req.body.summary,
           body: req.body.content,
-          // date: new Date()
+          // createdAt: new Date()
         },
       }
     );
@@ -116,13 +116,12 @@ router.post('/posts/:id/delete', async function (req, res) {
 
 router.get('/posts/:id/comments', async function (req, res) {
   const postId = new ObjectId(req.params.id);
-  const post = await db.getDb().collection('posts').findOne({ _id: postId });
   const comments = await db
     .getDb()
     .collection('comments')
     .find({ postId: postId }).toArray();
 
-  return res.render('post-detail', { post: post, comments: comments });
+  res.json(comments);
 });
 
 router.post('/posts/:id/comments', async function (req, res) {
